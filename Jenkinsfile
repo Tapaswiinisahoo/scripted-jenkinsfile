@@ -1,7 +1,16 @@
-node {
-      def i = '1'
-           stage "Stage #"+i
-           print 'Hello, world !'
-           git 'https://github.com/ravikumar1973/iscp-operator.git'
-           sh 'ls'
+pipeline{
+agent any
+environment {
+    CLOUD = 'ibmcloud'
+}
+stages{
+stage('Example'){
+environment {
+API_KEY = 'ISCP123'
+}
+steps{ 
+sh 'printenv'
+}
+}
+}
 }
